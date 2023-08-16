@@ -1,0 +1,738 @@
+[
+    {
+        "id": "da75af1d2a0abf7e",
+        "type": "tab",
+        "label": "Envia Json",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "2d28569a116bd79b",
+        "type": "tab",
+        "label": "Recebe Json",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "d3196bd02840c916",
+        "type": "serial-port",
+        "serialport": "COM6",
+        "serialbaud": "9600",
+        "databits": "8",
+        "parity": "none",
+        "stopbits": "1",
+        "waitfor": "",
+        "dtr": "none",
+        "rts": "none",
+        "cts": "none",
+        "dsr": "none",
+        "newline": "\\n",
+        "bin": "false",
+        "out": "char",
+        "addchar": "",
+        "responsetimeout": "10000"
+    },
+    {
+        "id": "02245792e486992c",
+        "type": "ui_group",
+        "name": "Temperatura",
+        "tab": "",
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "47b8e7b0e4f0c2b8",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-dark",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#097479",
+                    "value": "#097479",
+                    "edited": false
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#097479",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#333333",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#0eb8c0",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#555555",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#333333",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#eeeeee",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#097479",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#333333",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey",
+                "palette": "light"
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "2883110dd4ce7f1d",
+        "type": "ui_tab",
+        "name": "Tab 1",
+        "icon": "dashboard",
+        "order": 1
+    },
+    {
+        "id": "698fa8c56223c264",
+        "type": "ui_group",
+        "name": "Temp-sensor",
+        "tab": "2883110dd4ce7f1d",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "51149a084d14af9b",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "broker.hivemq.com",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "a8551aa1bb04c238",
+        "type": "json",
+        "z": "da75af1d2a0abf7e",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 290,
+        "y": 420,
+        "wires": [
+            [
+                "6cee9bd21d245cee",
+                "d9315ba1352f68c4",
+                "2d2e0c2685a446c9"
+            ]
+        ]
+    },
+    {
+        "id": "ab1b5bed20a81ac7",
+        "type": "serial in",
+        "z": "da75af1d2a0abf7e",
+        "name": "",
+        "serial": "d3196bd02840c916",
+        "x": 70,
+        "y": 420,
+        "wires": [
+            [
+                "a8551aa1bb04c238"
+            ]
+        ]
+    },
+    {
+        "id": "4115261eb7800194",
+        "type": "mqtt out",
+        "z": "da75af1d2a0abf7e",
+        "name": "",
+        "topic": "infinity/fiap/temperatura",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "51149a084d14af9b",
+        "x": 800,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "6cee9bd21d245cee",
+        "type": "change",
+        "z": "da75af1d2a0abf7e",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.temperatura",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 460,
+        "y": 340,
+        "wires": [
+            [
+                "4115261eb7800194"
+            ]
+        ]
+    },
+    {
+        "id": "d9315ba1352f68c4",
+        "type": "change",
+        "z": "da75af1d2a0abf7e",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.umidade",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 460,
+        "y": 500,
+        "wires": [
+            [
+                "b4c0767ebb4cba8a"
+            ]
+        ]
+    },
+    {
+        "id": "b4c0767ebb4cba8a",
+        "type": "mqtt out",
+        "z": "da75af1d2a0abf7e",
+        "name": "",
+        "topic": "infinity/fiap/umidade",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "51149a084d14af9b",
+        "x": 670,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "32f5a4b8d61d01ae",
+        "type": "mqtt out",
+        "z": "da75af1d2a0abf7e",
+        "name": "",
+        "topic": "infinity/fiap/json",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "51149a084d14af9b",
+        "x": 800,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "2d2e0c2685a446c9",
+        "type": "change",
+        "z": "da75af1d2a0abf7e",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 460,
+        "y": 260,
+        "wires": [
+            [
+                "32f5a4b8d61d01ae"
+            ]
+        ]
+    },
+    {
+        "id": "32a117458bf8115f",
+        "type": "ui_gauge",
+        "z": "2d28569a116bd79b",
+        "name": "",
+        "group": "698fa8c56223c264",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "wave",
+        "title": "Umidade",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 540,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "0c1c64dd65c62075",
+        "type": "ui_chart",
+        "z": "2d28569a116bd79b",
+        "name": "",
+        "group": "698fa8c56223c264",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "label": "Umidade",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 540,
+        "y": 460,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "83e72a69b2f4ca28",
+        "type": "mqtt in",
+        "z": "2d28569a116bd79b",
+        "name": "",
+        "topic": "infinity/fiap/umidade",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "51149a084d14af9b",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 270,
+        "y": 380,
+        "wires": [
+            [
+                "32a117458bf8115f",
+                "0c1c64dd65c62075"
+            ]
+        ]
+    },
+    {
+        "id": "2fc4cd60f5e5f951",
+        "type": "debug",
+        "z": "2d28569a116bd79b",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1380,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "9298b4367f30cbc7",
+        "type": "serial out",
+        "z": "2d28569a116bd79b",
+        "name": "",
+        "serial": "d3196bd02840c916",
+        "x": 930,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "985abe010e934a44",
+        "type": "ui_gauge",
+        "z": "2d28569a116bd79b",
+        "name": "",
+        "group": "698fa8c56223c264",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Temperatura",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "50",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 510,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "2ec082ecdf31ba6d",
+        "type": "mqtt in",
+        "z": "2d28569a116bd79b",
+        "name": "",
+        "topic": "infinity/fiap/temperatura",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "51149a084d14af9b",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 280,
+        "y": 300,
+        "wires": [
+            [
+                "985abe010e934a44",
+                "8f90fb8be1d8061d"
+            ]
+        ]
+    },
+    {
+        "id": "f970ef38b8cbd03d",
+        "type": "ui_toast",
+        "z": "2d28569a116bd79b",
+        "position": "top right",
+        "displayTime": "3",
+        "highlight": "",
+        "sendall": true,
+        "outputs": 0,
+        "ok": "OK",
+        "cancel": "",
+        "raw": true,
+        "className": "",
+        "topic": "",
+        "name": "",
+        "x": 950,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "380c6b4bfa5e9a40",
+        "type": "function",
+        "z": "2d28569a116bd79b",
+        "name": "Função",
+        "func": "if (msg.payload.temperatura > 22 && msg.payload.umidade <85){\n    msg.payload = \"Limites Foram Ultrapassados.\";\n    return msg;\n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 720,
+        "y": 200,
+        "wires": [
+            [
+                "f970ef38b8cbd03d",
+                "9298b4367f30cbc7"
+            ]
+        ]
+    },
+    {
+        "id": "8f90fb8be1d8061d",
+        "type": "ui_chart",
+        "z": "2d28569a116bd79b",
+        "name": "",
+        "group": "698fa8c56223c264",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "label": "Temperatura",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 510,
+        "y": 300,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "a8125dbaf75e6cb0",
+        "type": "ui_switch",
+        "z": "2d28569a116bd79b",
+        "name": "",
+        "label": "switch",
+        "tooltip": "",
+        "group": "698fa8c56223c264",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "decouple": "true",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 470,
+        "y": 600,
+        "wires": [
+            [
+                "7e901efb302a61e4"
+            ]
+        ]
+    },
+    {
+        "id": "575c7f01dc0ca05c",
+        "type": "inject",
+        "z": "2d28569a116bd79b",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "x": 250,
+        "y": 600,
+        "wires": [
+            [
+                "a8125dbaf75e6cb0"
+            ]
+        ]
+    },
+    {
+        "id": "7e901efb302a61e4",
+        "type": "debug",
+        "z": "2d28569a116bd79b",
+        "name": "debug 3",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 760,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "ff087627d58a29cb",
+        "type": "inject",
+        "z": "2d28569a116bd79b",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "false",
+        "payloadType": "bool",
+        "x": 250,
+        "y": 660,
+        "wires": [
+            [
+                "a8125dbaf75e6cb0"
+            ]
+        ]
+    },
+    {
+        "id": "5b0136a727213af4",
+        "type": "mqtt in",
+        "z": "2d28569a116bd79b",
+        "name": "",
+        "topic": "infinity/fiap/json",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "51149a084d14af9b",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 280,
+        "y": 200,
+        "wires": [
+            [
+                "380c6b4bfa5e9a40"
+            ]
+        ]
+    }
+]
