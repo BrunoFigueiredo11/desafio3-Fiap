@@ -16,9 +16,36 @@
         "env": []
     },
     {
+        "id": "51149a084d14af9b",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "broker.hivemq.com",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
         "id": "d3196bd02840c916",
         "type": "serial-port",
-        "serialport": "COM6",
+        "serialport": "/dev/ttyACM0",
         "serialbaud": "9600",
         "databits": "8",
         "parity": "none",
@@ -33,16 +60,6 @@
         "out": "char",
         "addchar": "",
         "responsetimeout": "10000"
-    },
-    {
-        "id": "02245792e486992c",
-        "type": "ui_group",
-        "name": "Temperatura",
-        "tab": "",
-        "disp": true,
-        "width": "6",
-        "collapse": false,
-        "className": ""
     },
     {
         "id": "47b8e7b0e4f0c2b8",
@@ -142,11 +159,14 @@
         }
     },
     {
-        "id": "2883110dd4ce7f1d",
-        "type": "ui_tab",
-        "name": "Tab 1",
-        "icon": "dashboard",
-        "order": 1
+        "id": "02245792e486992c",
+        "type": "ui_group",
+        "name": "Temperatura",
+        "tab": "",
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
     },
     {
         "id": "698fa8c56223c264",
@@ -160,31 +180,11 @@
         "className": ""
     },
     {
-        "id": "51149a084d14af9b",
-        "type": "mqtt-broker",
-        "name": "",
-        "broker": "broker.hivemq.com",
-        "port": "1883",
-        "clientid": "",
-        "autoConnect": true,
-        "usetls": false,
-        "protocolVersion": "4",
-        "keepalive": "60",
-        "cleansession": true,
-        "birthTopic": "",
-        "birthQos": "0",
-        "birthPayload": "",
-        "birthMsg": {},
-        "closeTopic": "",
-        "closeQos": "0",
-        "closePayload": "",
-        "closeMsg": {},
-        "willTopic": "",
-        "willQos": "0",
-        "willPayload": "",
-        "willMsg": {},
-        "userProps": "",
-        "sessionExpiry": ""
+        "id": "2883110dd4ce7f1d",
+        "type": "ui_tab",
+        "name": "Tab 1",
+        "icon": "dashboard",
+        "order": 1
     },
     {
         "id": "a8551aa1bb04c238",
@@ -200,21 +200,8 @@
             [
                 "6cee9bd21d245cee",
                 "d9315ba1352f68c4",
-                "2d2e0c2685a446c9"
-            ]
-        ]
-    },
-    {
-        "id": "ab1b5bed20a81ac7",
-        "type": "serial in",
-        "z": "da75af1d2a0abf7e",
-        "name": "",
-        "serial": "d3196bd02840c916",
-        "x": 70,
-        "y": 420,
-        "wires": [
-            [
-                "a8551aa1bb04c238"
+                "2d2e0c2685a446c9",
+                "62440b7c62a916cb"
             ]
         ]
     },
@@ -255,7 +242,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 460,
+        "x": 480,
         "y": 340,
         "wires": [
             [
@@ -282,8 +269,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 460,
-        "y": 500,
+        "x": 480,
+        "y": 420,
         "wires": [
             [
                 "b4c0767ebb4cba8a"
@@ -304,8 +291,8 @@
         "correl": "",
         "expiry": "",
         "broker": "51149a084d14af9b",
-        "x": 670,
-        "y": 500,
+        "x": 690,
+        "y": 420,
         "wires": []
     },
     {
@@ -345,13 +332,169 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 460,
+        "x": 480,
         "y": 260,
         "wires": [
             [
                 "32f5a4b8d61d01ae"
             ]
         ]
+    },
+    {
+        "id": "ab1b5bed20a81ac7",
+        "type": "serial in",
+        "z": "da75af1d2a0abf7e",
+        "name": "",
+        "serial": "d3196bd02840c916",
+        "x": 130,
+        "y": 420,
+        "wires": [
+            [
+                "a8551aa1bb04c238"
+            ]
+        ]
+    },
+    {
+        "id": "62440b7c62a916cb",
+        "type": "change",
+        "z": "da75af1d2a0abf7e",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.distancia",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 480,
+        "y": 500,
+        "wires": [
+            [
+                "009fd5928ae2243c"
+            ]
+        ]
+    },
+    {
+        "id": "009fd5928ae2243c",
+        "type": "mqtt out",
+        "z": "da75af1d2a0abf7e",
+        "name": "",
+        "topic": "infinity/fiap/distancia",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "51149a084d14af9b",
+        "x": 700,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "83e72a69b2f4ca28",
+        "type": "mqtt in",
+        "z": "2d28569a116bd79b",
+        "name": "",
+        "topic": "infinity/fiap/umidade",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "51149a084d14af9b",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 290,
+        "y": 440,
+        "wires": [
+            [
+                "32a117458bf8115f",
+                "0c1c64dd65c62075"
+            ]
+        ]
+    },
+    {
+        "id": "2ec082ecdf31ba6d",
+        "type": "mqtt in",
+        "z": "2d28569a116bd79b",
+        "name": "",
+        "topic": "infinity/fiap/temperatura",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "51149a084d14af9b",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 280,
+        "y": 300,
+        "wires": [
+            [
+                "985abe010e934a44",
+                "8f90fb8be1d8061d"
+            ]
+        ]
+    },
+    {
+        "id": "380c6b4bfa5e9a40",
+        "type": "function",
+        "z": "2d28569a116bd79b",
+        "name": "Função",
+        "func": "if (msg.payload.temperatura > 22 && msg.payload.umidade <85){\n    msg.payload = \"Limites Foram Ultrapassados.\";\n    return msg;\n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 500,
+        "y": 200,
+        "wires": [
+            [
+                "f970ef38b8cbd03d",
+                "9298b4367f30cbc7",
+                "55d9809fbf83a2c4"
+            ]
+        ]
+    },
+    {
+        "id": "5b0136a727213af4",
+        "type": "mqtt in",
+        "z": "2d28569a116bd79b",
+        "name": "",
+        "topic": "infinity/fiap/json",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "51149a084d14af9b",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 260,
+        "y": 200,
+        "wires": [
+            [
+                "380c6b4bfa5e9a40",
+                "68a285b7464433fc"
+            ]
+        ]
+    },
+    {
+        "id": "9298b4367f30cbc7",
+        "type": "serial out",
+        "z": "2d28569a116bd79b",
+        "name": "",
+        "serial": "d3196bd02840c916",
+        "x": 820,
+        "y": 200,
+        "wires": []
     },
     {
         "id": "32a117458bf8115f",
@@ -377,8 +520,36 @@
         "seg2": "",
         "diff": false,
         "className": "",
-        "x": 540,
-        "y": 420,
+        "x": 480,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "985abe010e934a44",
+        "type": "ui_gauge",
+        "z": "2d28569a116bd79b",
+        "name": "",
+        "group": "698fa8c56223c264",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Temperatura",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "50",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 490,
+        "y": 260,
         "wires": []
     },
     {
@@ -419,147 +590,10 @@
         "outputs": 1,
         "useDifferentColor": false,
         "className": "",
-        "x": 540,
-        "y": 460,
+        "x": 480,
+        "y": 480,
         "wires": [
             []
-        ]
-    },
-    {
-        "id": "83e72a69b2f4ca28",
-        "type": "mqtt in",
-        "z": "2d28569a116bd79b",
-        "name": "",
-        "topic": "infinity/fiap/umidade",
-        "qos": "2",
-        "datatype": "auto-detect",
-        "broker": "51149a084d14af9b",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 270,
-        "y": 380,
-        "wires": [
-            [
-                "32a117458bf8115f",
-                "0c1c64dd65c62075"
-            ]
-        ]
-    },
-    {
-        "id": "2fc4cd60f5e5f951",
-        "type": "debug",
-        "z": "2d28569a116bd79b",
-        "name": "debug 2",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1380,
-        "y": 540,
-        "wires": []
-    },
-    {
-        "id": "9298b4367f30cbc7",
-        "type": "serial out",
-        "z": "2d28569a116bd79b",
-        "name": "",
-        "serial": "d3196bd02840c916",
-        "x": 930,
-        "y": 200,
-        "wires": []
-    },
-    {
-        "id": "985abe010e934a44",
-        "type": "ui_gauge",
-        "z": "2d28569a116bd79b",
-        "name": "",
-        "group": "698fa8c56223c264",
-        "order": 0,
-        "width": 0,
-        "height": 0,
-        "gtype": "gage",
-        "title": "Temperatura",
-        "label": "units",
-        "format": "{{value}}",
-        "min": 0,
-        "max": "50",
-        "colors": [
-            "#00b500",
-            "#e6e600",
-            "#ca3838"
-        ],
-        "seg1": "",
-        "seg2": "",
-        "diff": false,
-        "className": "",
-        "x": 510,
-        "y": 260,
-        "wires": []
-    },
-    {
-        "id": "2ec082ecdf31ba6d",
-        "type": "mqtt in",
-        "z": "2d28569a116bd79b",
-        "name": "",
-        "topic": "infinity/fiap/temperatura",
-        "qos": "2",
-        "datatype": "auto-detect",
-        "broker": "51149a084d14af9b",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 280,
-        "y": 300,
-        "wires": [
-            [
-                "985abe010e934a44",
-                "8f90fb8be1d8061d"
-            ]
-        ]
-    },
-    {
-        "id": "f970ef38b8cbd03d",
-        "type": "ui_toast",
-        "z": "2d28569a116bd79b",
-        "position": "top right",
-        "displayTime": "3",
-        "highlight": "",
-        "sendall": true,
-        "outputs": 0,
-        "ok": "OK",
-        "cancel": "",
-        "raw": true,
-        "className": "",
-        "topic": "",
-        "name": "",
-        "x": 950,
-        "y": 140,
-        "wires": []
-    },
-    {
-        "id": "380c6b4bfa5e9a40",
-        "type": "function",
-        "z": "2d28569a116bd79b",
-        "name": "Função",
-        "func": "if (msg.payload.temperatura > 22 && msg.payload.umidade <85){\n    msg.payload = \"Limites Foram Ultrapassados.\";\n    return msg;\n}\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 720,
-        "y": 200,
-        "wires": [
-            [
-                "f970ef38b8cbd03d",
-                "9298b4367f30cbc7"
-            ]
         ]
     },
     {
@@ -600,126 +634,72 @@
         "outputs": 1,
         "useDifferentColor": false,
         "className": "",
-        "x": 510,
-        "y": 300,
+        "x": 490,
+        "y": 340,
         "wires": [
             []
         ]
     },
     {
-        "id": "a8125dbaf75e6cb0",
-        "type": "ui_switch",
+        "id": "f970ef38b8cbd03d",
+        "type": "ui_toast",
         "z": "2d28569a116bd79b",
-        "name": "",
-        "label": "switch",
-        "tooltip": "",
-        "group": "698fa8c56223c264",
-        "order": 4,
-        "width": 0,
-        "height": 0,
-        "passthru": false,
-        "decouple": "true",
-        "topic": "topic",
-        "topicType": "msg",
-        "style": "",
-        "onvalue": "true",
-        "onvalueType": "bool",
-        "onicon": "",
-        "oncolor": "",
-        "offvalue": "false",
-        "offvalueType": "bool",
-        "officon": "",
-        "offcolor": "",
-        "animate": false,
+        "position": "top right",
+        "displayTime": "3",
+        "highlight": "",
+        "sendall": true,
+        "outputs": 0,
+        "ok": "OK",
+        "cancel": "",
+        "raw": true,
         "className": "",
-        "x": 470,
-        "y": 600,
-        "wires": [
-            [
-                "7e901efb302a61e4"
-            ]
-        ]
-    },
-    {
-        "id": "575c7f01dc0ca05c",
-        "type": "inject",
-        "z": "2d28569a116bd79b",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
         "topic": "",
-        "payload": "true",
-        "payloadType": "bool",
-        "x": 250,
-        "y": 600,
-        "wires": [
-            [
-                "a8125dbaf75e6cb0"
-            ]
-        ]
-    },
-    {
-        "id": "7e901efb302a61e4",
-        "type": "debug",
-        "z": "2d28569a116bd79b",
-        "name": "debug 3",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 760,
-        "y": 600,
+        "name": "",
+        "x": 830,
+        "y": 140,
         "wires": []
     },
     {
-        "id": "ff087627d58a29cb",
-        "type": "inject",
+        "id": "68a285b7464433fc",
+        "type": "file",
         "z": "2d28569a116bd79b",
         "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "false",
-        "payloadType": "bool",
-        "x": 250,
-        "y": 660,
+        "filename": "/home/ubuntu/jsonArduino.txt",
+        "filenameType": "str",
+        "appendNewline": true,
+        "createDir": false,
+        "overwriteFile": "false",
+        "encoding": "utf8",
+        "x": 860,
+        "y": 20,
         "wires": [
-            [
-                "a8125dbaf75e6cb0"
-            ]
+            []
         ]
     },
     {
-        "id": "5b0136a727213af4",
+        "id": "55d9809fbf83a2c4",
+        "type": "file in",
+        "z": "2d28569a116bd79b",
+        "name": "",
+        "filename": "/home/ubuntu/jsonArduino.txt",
+        "filenameType": "str",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "utf8",
+        "allProps": false,
+        "x": 860,
+        "y": 80,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "2e12db9aadc5e52b",
         "type": "mqtt in",
         "z": "2d28569a116bd79b",
         "name": "",
-        "topic": "infinity/fiap/json",
+        "topic": "infinity/fiap/distancia",
         "qos": "2",
         "datatype": "auto-detect",
         "broker": "51149a084d14af9b",
@@ -727,12 +707,85 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 280,
-        "y": 200,
+        "x": 290,
+        "y": 580,
         "wires": [
             [
-                "380c6b4bfa5e9a40"
+                "f88c1c50a02a4966",
+                "85f3b1855722c903"
             ]
+        ]
+    },
+    {
+        "id": "f88c1c50a02a4966",
+        "type": "ui_gauge",
+        "z": "2d28569a116bd79b",
+        "name": "",
+        "group": "698fa8c56223c264",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Distancia",
+        "label": "Centimetros",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "400",
+        "colors": [
+            "#21d421",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 480,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "85f3b1855722c903",
+        "type": "ui_chart",
+        "z": "2d28569a116bd79b",
+        "name": "",
+        "group": "698fa8c56223c264",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "label": "Distancia",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 480,
+        "y": 620,
+        "wires": [
+            []
         ]
     }
 ]
